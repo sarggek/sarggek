@@ -46,3 +46,22 @@ footer {
   background-color: #2b2b2b;
   color: #aaa;
 }
+.music {
+  padding: 50px 20px;
+  background-color: #1f1f1f;
+}
+
+.track-list {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.track p {
+  margin-bottom: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
