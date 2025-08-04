@@ -64,4 +64,30 @@ footer {
   font-size: 18px;
   font-weight: bold;
 }
+.lyrics {
+  padding: 50px 20px;
+  background-color: #181818;
+}
+
+.lyric-block {
+  max-width: 700px;
+  margin: 30px auto;
+  text-align: left;
+  background-color: #2a2a2a;
+  padding: 20px;
+  border-radius: 8px;
+  color: #f1f1f1;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
+}
+
+.lyric-block h3 {
+  margin-top: 0;
+  color: #e03c31;
+}
+
+.lyric-block pre {
+  white-space: pre-wrap;
+  line-height: 1.6;
+  font-family: monospace;
+}
 
