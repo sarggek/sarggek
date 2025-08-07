@@ -1,72 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sarggek – Official Website</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>Sarggek - Official Site</title>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-  <header>
-    <h1>SARGGEK</h1>
-    <p>Voice They Ignore</p>
-  </header>
 
-  <main>
-    <section class="hero">
-      <section class="music">
-       
-  <div class="lyric-block">
-    <h3>Bhaag Dilli</h3>
-    <pre>
-Yeh sheher nahi circus hai,
-Kanoon sirf surface hai,
-Andar sab andhera hai,
-Chhupa hua purpose hai.
-    </pre>
+  <!-- 🔁 Preloader Section -->
+  <div id="preloader">
+    <img src="assets/disk.png" alt="Loading..." class="spinner" />
   </div>
-</section>
 
-  <h2>🎶 Tracks</h2>
-  <div class="track-list">
-    <div class="track">
-      <p><strong>No Dowry & Alimony</strong></p>
-      <audio controls>
-        <source src="tracks/no-dowry.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    </div>
- <section class="lyrics">
-  <h2>📝 Lyrics</h2>
+  <!-- 🎵 Background Audio -->
+  <audio autoplay loop id="bg-audio">
+    <source src="assets/audio.mp3" type="audio/mp3">
+    Your browser does not support the audio element.
+  </audio>
 
-  <div class="lyric-block">
-    <h3>No Dowry & Alimony</h3>
-    <pre>
-Shaadi ka season,
-Phir bhi bheekh maangte,
-Rishton ke naam pe,
-Samaj ko chakma dete.
-    </pre>
-  </div>
-   
-    <div class="track">
-      <p><strong>Bhaag Dilli</strong></p>
-      <audio controls>
-        <source src="tracks/bhaag-dilli.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
+  <!-- 📄 Main Content -->
+  <div id="main-content" style="display:none;">
+    <div class="hero-section">
+      <!-- Background image is handled in CSS -->
+
+      <!-- 🔘 PNG Navigation Buttons -->
+      <div class="top-buttons">
+        <a href="page1.html"><img src="assets/button1.png" alt="Go to Page 1" /></a>
+        <a href="page2.html"><img src="assets/button2.png" alt="Go to Page 2" /></a>
+        <!-- Add more buttons if needed -->
+      </div>
+
+      <!-- 👑 Sarggek Details -->
+      <div class="sarggek-details">
+        <h1>Sarggek</h1>
+        <p>"Voice of the Unheard" – Hardcore Indian Rap Artist<br />
+        Representing truth, fire, and raw emotions. No filters. No lies.<br />
+        #NoDowry #NoAlimony #RealRap</p>
+      </div>
+
+      <!-- 🌐 Social Media Links -->
+      <div class="social-links">
+        <a href="https://instagram.com/sarggek" target="_blank">
+          <img src="assets/insta.png" alt="Instagram" />
+        </a>
+        <a href="https://youtube.com/sarggek" target="_blank">
+          <img src="assets/youtube.png" alt="YouTube" />
+        </a>
+        <a href="https://twitter.com/sarggek" target="_blank">
+          <img src="assets/twitter.png" alt="Twitter" />
+        </a>
+        <!-- Add more icons as needed -->
+      </div>
     </div>
   </div>
-</section>
 
-      <h2>New Track Out Now</h2>
-      <a href="#">🎧 Listen Now</a>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 – Sarggek | All Rights Reserved</p>
-  </footer>
+  <!-- 🧠 JS to control loader -->
+  <script>
+    window.addEventListener("load", function () {
+      const preloader = document.getElementById("preloader");
+      const main = document.getElementById("main-content");
+      preloader.style.display = "none";
+      main.style.display = "block";
+    });
+  </script>
 </body>
 </html>
