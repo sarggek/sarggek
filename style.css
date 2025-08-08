@@ -151,55 +151,59 @@ a:hover {
   padding: 8px;
   text-decoration: none;
   overflow: hidden;
-  width: fit-content;
+  width: 40px; /* default sirf icon ka size */
   transition: all 0.3s ease;
 }
 
+/* Icon styling */
 .nav-item img {
   width: 24px;
   height: 24px;
   transition: transform 0.3s ease;
 }
 
-/* Default text style (hidden) */
+/* Text hidden initially */
 .nav-item span {
   color: #fff;
   font-size: 14px;
   white-space: nowrap;
   opacity: 0;
-  transition: all 0.3s ease;
+  margin-left: 8px;
+  transition: opacity 0.3s ease;
 }
 
-/* Left nav: text slides to right */
-.left-nav .nav-item span {
-  margin-left: 8px;
-  transform: translateX(-100%);
+/* Left nav hover effect */
+.left-nav .nav-item:hover {
+  width: 120px; /* hover pe box expand */
 }
 
 .left-nav .nav-item:hover span {
-  transform: translateX(0);
   opacity: 1;
 }
 
-/* Right nav: text slides to left */
+/* Right nav: reverse direction */
 .right-nav .nav-item {
   flex-direction: row-reverse;
 }
 
 .right-nav .nav-item span {
+  margin-left: 0;
   margin-right: 8px;
-  transform: translateX(100%);
+}
+
+.right-nav .nav-item:hover {
+  width: 120px;
 }
 
 .right-nav .nav-item:hover span {
-  transform: translateX(0);
   opacity: 1;
 }
 
-/* Icon zoom effect on hover */
+/* Icon zoom effect */
 .nav-item:hover img {
   transform: scale(1.2);
 }
+
 
 /* Hindi Background Canvas */
 #hindiBackground {
