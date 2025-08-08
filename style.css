@@ -101,27 +101,19 @@ body {
 #bg-audio {
   display: none;
 }
-/* Golden Shine Text Effect */
-.golden-text {
-  background: linear-gradient(
-    90deg,
-    #ffd700,
-    #ffec8b,
-    #ffd700
-  );
-  background-size: 200% auto;
-  color: #fff; /* Fallback */
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: shine 3s linear infinite;
-  font-weight: bold;
+/* Ye code style.css me daalna hai */
+body {
+  color: #fdedcf; /* Sab text ka color */
 }
 
-/* Animation for shine */
-@keyframes shine {
-  to {
-    background-position: 200% center;
-  }
+/* Agar link ka bhi same color chahiye */
+a {
+  color: #fdedcf;
+  text-decoration: none; /* underline hatane ke liye */
 }
+
+a:hover {
+  color: #ffffff; /* hover pe white ya koi aur chahiye toh change karo */
+}
+
 
