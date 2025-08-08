@@ -16,7 +16,16 @@ body {
 body {
 
   cursor: url("Cursors.png") 0 0, auto;
+/* Clickable cheez pe hover (links, buttons, icons) */
+a, button {
+  cursor: url("Cursorshand.png") 0 0, pointer;
+}
 
+/* Text selection / typing ke waqt */
+input, textarea, [contenteditable="true"], 
+p, h1, h2, h3, h4, h5, h6, span {
+  cursor: url("Cursorstext.png") 0 0, text;
+}
 
 }
 
