@@ -227,3 +227,13 @@ a:hover {
   opacity: 1;
 }
 
+/* Right nav text slide left */
+.right-nav .nav-item span {
+  margin-left: 0;
+  margin-right: 8px;
+  transform: translateX(100%);
+}
+
+.right-nav .nav-item:hover span {
+  transform: translateX(0);
+}
