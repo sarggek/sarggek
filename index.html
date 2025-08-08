@@ -199,6 +199,42 @@ window.addEventListener('resize', function() {
 init();
 animate();
 </script>
+<script>
+// Sarggek analog clock script
+(function() {
+  const hourHand = document.getElementById('hour-hand');
+  const minuteHand = document.getElementById('minute-hand');
+  const secondHand = document.getElementById('second-hand');
+  const label = document.getElementById('clock-label');
+
+  function updateClock() {
+    const now = new Date();
+    const hh = now.getHours();
+    const mm = now.getMinutes();
+    const ss = now.getSeconds();
+
+    // angles
+    const hourDeg = ((hh % 12) + mm / 60) * 30;        // 360/12 = 30
+    const minuteDeg = (mm + ss / 60) * 6;             // 360/60 = 6
+    const secondDeg = ss * 6;                         // 360/60 = 6
+
+    hourHand.style.transform = `translate(-50%, -100%) rotate(${hourDeg}deg)`;
+    minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteDeg}deg)`;
+    secondHand.style.transform = `translate(-50%, -100%) rotate(${secondDeg}deg)`;
+
+    // optional digital label under clock (12h AM/PM)
+    const hh12 = ((hh + 11) % 12) + 1;
+    const ampm = hh >= 12 ? 'PM' : 'AM';
+    const paddedMin = mm.toString().padStart(2,'0');
+    label.textContent = `${hh12}:${paddedMin} ${ampm}`;
+  }
+
+  // init
+  updateClock();
+  // update every 1s for smooth second hand (transition is short)
+  setInterval(updateClock, 1000);
+})();
+</script>
 
 </body>
 </html>
