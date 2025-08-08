@@ -173,18 +173,57 @@ a:hover {
   transition: all 0.3s ease;
 }
 
-/* Hover effect: text slides out + icon grows */
+.side-nav {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 1000;
+}
+
+.left-nav { left: 10px; }
+.right-nav { right: 10px; }
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 30px;
+  padding: 8px;
+  text-decoration: none;
+  overflow: hidden;
+  width: 50px;
+  transition: all 0.3s ease;
+}
+
+.nav-item img {
+  width: 24px;
+  height: 24px;
+  transition: transform 0.3s ease;
+}
+
+.nav-item span {
+  color: #fff;
+  font-size: 14px;
+  margin-left: 8px;
+  white-space: nowrap;
+  transform: translateX(-100%);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
 .nav-item:hover {
-  width: 140px;
-  background: rgba(255, 140, 0, 0.9); /* orange highlight */
+  width: 150px; /* icon + text ka space */
 }
 
-.nav-item:hover .label {
-  opacity: 1;
+.nav-item:hover img {
+  transform: scale(1.2); /* icon zoom */
+}
+
+.nav-item:hover span {
   transform: translateX(0);
-}
-
-.nav-item:hover .icon {
-  transform: scale(1.3);
+  opacity: 1;
 }
 
