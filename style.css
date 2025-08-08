@@ -14,7 +14,10 @@ body {
 }
 /* Ye style.css me daalna hai */
 body {
-  cursor: url("Cursor.png"), auto;
+
+  cursor: url("assets/cursor.png") 0 0, auto;
+
+
 }
 
 /* 🎧 Preloader Style */
