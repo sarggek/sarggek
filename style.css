@@ -132,7 +132,7 @@ a:hover {
   color: #fff1e5; /* hover pe white ya koi aur chahiye toh change karo */
 }
 
-/* Common side navigation style */
+/* Common nav container */
 .side-nav {
   position: fixed;
   top: 50%;
@@ -146,46 +146,7 @@ a:hover {
 .left-nav { left: 10px; }
 .right-nav { right: 10px; }
 
-.nav-item {
-  display: flex;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  color: #fff;
-  text-decoration: none;
-  border-radius: 30px;
-  padding: 8px;
-  transition: all 0.3s ease;
-  overflow: hidden;
-  width: 45px;
-  position: relative;
-}
-
-.icon {
-  font-size: 22px;
-  transition: transform 0.3s ease;
-}
-
-.label {
-  white-space: nowrap;
-  margin-left: 8px;
-  opacity: 0;
-  transform: translateX(-10px);
-  transition: all 0.3s ease;
-}
-
-.side-nav {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 1000;
-}
-
-.left-nav { left: 10px; }
-.right-nav { right: 10px; }
-
+/* Common nav item */
 .nav-item {
   display: flex;
   align-items: center;
@@ -194,7 +155,7 @@ a:hover {
   padding: 8px;
   text-decoration: none;
   overflow: hidden;
-  width: 50px;
+  width: fit-content;
   transition: all 0.3s ease;
 }
 
@@ -204,36 +165,42 @@ a:hover {
   transition: transform 0.3s ease;
 }
 
+/* Default text style (hidden) */
 .nav-item span {
   color: #fff;
   font-size: 14px;
-  margin-left: 8px;
   white-space: nowrap;
-  transform: translateX(-100%);
   opacity: 0;
   transition: all 0.3s ease;
 }
 
-.nav-item:hover {
-  width: 150px; /* icon + text ka space */
+/* Left nav: text slides to right */
+.left-nav .nav-item span {
+  margin-left: 8px;
+  transform: translateX(-100%);
 }
 
-.nav-item:hover img {
-  transform: scale(1.2); /* icon zoom */
-}
-
-.nav-item:hover span {
+.left-nav .nav-item:hover span {
   transform: translateX(0);
   opacity: 1;
 }
 
-/* Right nav text slide left */
+/* Right nav: text slides to left */
+.right-nav .nav-item {
+  flex-direction: row-reverse;
+}
+
 .right-nav .nav-item span {
-  margin-left: 0;
   margin-right: 8px;
   transform: translateX(100%);
 }
 
 .right-nav .nav-item:hover span {
   transform: translateX(0);
+  opacity: 1;
+}
+
+/* Icon zoom effect on hover */
+.nav-item:hover img {
+  transform: scale(1.2);
 }
