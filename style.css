@@ -12,6 +12,10 @@ body {
   overflow: hidden;
   color: white;
 }
+/* Ye style.css me daalna hai */
+body {
+  cursor: url("Cursor.png"), auto;
+}
 
 /* 🎧 Preloader Style */
 #preloader {
