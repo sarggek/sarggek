@@ -1,107 +1,92 @@
-:root {
-    --border-color: gold;
-    --text-color: white;
-    --button-bg: rgba(0,0,0,0.6);
-    --button-active: blue;
+:root{
+  --bg-image: url('images/background.jpg'); /* change to your image path */
+  --box-border: #60402a;      /* main border color */
+  --text-color: #fdedcf;     /* main text */
+  --card-bg: rgba(255,255,255,0.03);
+  --voted-color: #2b6fb2;    /* voted button color */
+  --btn-color: #60402a;
+  --muted: rgba(255,255,255,0.7);
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
-    height: 100%;
-    color: var(--text-color);
+/* base */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family: Arial, sans-serif;
+  color:var(--text-color);
+  background: #000; /* fallback */
 }
 
-/* Background image */
-.background {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('images/background.jpg') no-repeat center center/cover;
-    z-index: -1;
+/* background image (only image) */
+.background{
+  position:fixed; inset:0;
+  background: var(--bg-image) center/cover no-repeat fixed;
+  z-index:0;
+  filter: brightness(0.45);
 }
 
-.container {
-    max-width: 800px;
-    margin: auto;
-    padding: 20px;
-    background: rgba(0,0,0,0.7);
-    border: 2px solid var(--border-color);
-    border-radius: 10px;
+/* outer wrap (big box) */
+.outer-wrap{
+  position:relative; z-index:2;
+  max-width:1100px; margin:36px auto;
+  background: rgba(0,0,0,0.45);
+  border:3px solid var(--box-border);
+  padding:18px;
+  border-radius:12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.6);
 }
 
-h1, h2 {
-    text-align: center;
-}
+/* title */
+.title{ text-align:center; margin-bottom:10px; font-size:22px; }
 
-/* Role Selection */
-.role-selection {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-bottom: 20px;
-}
+/* prev winner */
+.prev-winner{ text-align:center; margin-bottom:10px; padding:10px; border-radius:8px; background: rgba(0,0,0,0.25); border:1px solid rgba(255,255,255,0.03); }
+.muted{ margin-left:8px; color:var(--muted); font-size:13px; }
 
-.role-selection button {
-    padding: 10px 20px;
-    background: var(--button-bg);
-    border: 2px solid var(--border-color);
-    color: var(--text-color);
-    cursor: pointer;
-    border-radius: 5px;
-}
+/* controls */
+.control-row{ display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:12px; }
+.ctrl-btn{ background:transparent; color:var(--text-color); border:2px solid var(--box-border); padding:8px 12px; border-radius:8px; cursor:pointer; }
+.cycle-info{ font-size:14px; color:var(--muted) }
 
-/* Forms */
-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
+/* roles */
+.role-row{ display:flex; gap:12px; justify-content:center; margin-bottom:12px; }
+.role-btn{ background: transparent; color:var(--text-color); border:2px solid var(--box-border); padding:8px 14px; border-radius:8px; cursor:pointer; }
+.role-btn:hover{ background:rgba(255,255,255,0.02) }
 
-input, button {
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid var(--border-color);
-    background: var(--button-bg);
-    color: var(--text-color);
-}
+/* forms */
+.info-form{ display:flex; flex-direction:column; gap:8px; max-width:420px; margin:0 auto 14px; }
+.info-form input{ padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text-color); }
+.submit-btn{ background:var(--btn-color); color:#fff; padding:8px; border-radius:8px; border:0; cursor:pointer; font-weight:700; }
 
-button:hover {
-    background: var(--border-color);
-    color: black;
-}
+/* main box */
+.main-box{ display:flex; gap:16px; margin-top:12px; align-items:flex-start; }
+.rapper-list{ flex:1; display:flex; flex-direction:column; gap:12px; max-height:60vh; overflow:auto; padding:8px; }
 
-/* Voting */
-.rapper-list {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
+/* each rapper single box */
+.rapper-box{ display:flex; justify-content:space-between; align-items:center; padding:12px; border-radius:10px; background:var(--card-bg); border:1px solid rgba(255,255,255,0.04); }
+.rapper-meta{ display:flex; flex-direction:column; gap:4px; }
+.stage-name{ font-weight:700; font-size:16px; color:var(--text-color); }
+.score{ font-size:13px; color:var(--muted) }
 
-.rapper-box {
-    padding: 10px;
-    border: 2px solid var(--border-color);
-    border-radius: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
+/* vote controls inside same box */
+.vote-controls{ display:flex; gap:6px; align-items:center; flex-wrap:wrap; }
+.vote-btn{ padding:6px 8px; border-radius:6px; border:1px solid rgba(255,255,255,0.06); background:transparent; color:var(--text-color); cursor:pointer; min-width:36px; text-align:center; }
+.vote-btn.voted{ background:var(--voted-color); color:#fff; border-color:var(--voted-color); }
+.vote-btn:disabled{ opacity:0.5; cursor:not-allowed; }
 
-.vote-buttons button {
-    padding: 5px 8px;
-    background: var(--button-bg);
-    color: var(--text-color);
-    border: 1px solid var(--border-color);
-    cursor: pointer;
-}
+/* leaderboard */
+.leaderboard{ width:260px; background:rgba(0,0,0,0.28); padding:10px; border-radius:8px; border:1px solid rgba(255,255,255,0.03) }
+.leaderboard h3{ margin-top:0; font-size:16px }
+.leaderboard ol{ padding-left:18px; color:var(--text-color) }
 
-.vote-buttons button.active {
-    background: var(--button-active);
-}
+/* note */
+.note{ margin-top:12px; text-align:center; color:var(--text-color); opacity:0.95; }
 
-.hidden {
-    display: none;
-}
+/* utility */
+.hidden{ display:none }
 
+/* responsive */
+@media (max-width:900px){
+  .main-box{ flex-direction:column; }
+  .leaderboard{ width:100%; order:2; }
+}
