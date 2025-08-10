@@ -1,101 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Live Cypher Battle</title>
-<link rel="stylesheet" href="page3.css">
-<!-- Firebase v8 -->
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-app.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-auth.js"></script>
-<script src="https://www.gstatic.com/firebasejs/8.10.0/firebase-database.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Cyper Battle</title>
+    <link rel="stylesheet" href="page3.css">
 </head>
 <body>
 
-<div class="outer-wrap">
+    <!-- Background overlay -->
+    <div class="background"></div>
 
-  <h1 class="title">Live Cypher Battle</h1>
+    <div class="container">
+        <h1>Live Cyper Battle</h1>
 
-  <!-- PREVIOUS WINNER (always visible when exists) -->
-  <div id="prevWinnerBox" class="prev-winner hidden">
-    <strong>Previous Winner:</strong>
-    <span id="prevWinnerName"></span>
-    <span id="prevWinnerDate" class="muted"></span>
-  </div>
+        <!-- Role Selection -->
+        <div class="role-selection">
+            <button id="rapperBtn">I am Rapper</button>
+            <button id="audienceBtn">I am Audience</button>
+        </div>
 
-  <!-- CONTROL ROW -->
-  <div class="control-row">
-    <button id="startCycleBtn" class="ctrl-btn">Start Cypher</button>
-    <div id="cycleInfo" class="cycle-info">No active cypher</div>
-  </div>
+        <!-- Rapper Form -->
+        <form id="rapperForm" class="hidden">
+            <h2>Rapper Registration</h2>
+            <input type="text" placeholder="Stage Name" required>
+            <input type="text" placeholder="Real Name" required>
+            <input type="tel" placeholder="Contact Number" required>
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Submit</button>
+        </form>
 
-  <!-- ROLE SELECTION -->
-  <div class="role-row">
-    <button id="btnRapper" class="role-btn">I'm a Rapper</button>
-    <button id="btnAudience" class="role-btn">I'm Audience</button>
-  </div>
+        <!-- Audience Form -->
+        <form id="audienceForm" class="hidden">
+            <h2>Audience Registration</h2>
+            <input type="text" placeholder="Name" required>
+            <input type="tel" placeholder="Contact Number" required>
+            <input type="email" placeholder="Email" required>
+            <button type="submit">Submit</button>
+        </form>
 
-  <!-- RAPPER FORM -->
-  <form id="rapperForm" class="info-form hidden">
-    <h3>Rapper Registration</h3>
-    <input id="stageName" placeholder="Stage Name (public)" required />
-    <input id="realName" placeholder="Real Name" />
-    <input id="rPhone" placeholder="Contact No" />
-    <input id="rEmail" placeholder="Email" />
-    <button type="submit" class="submit-btn">Submit as Rapper</button>
-  </form>
-
-  <!-- AUDIENCE FORM -->
-  <form id="audienceForm" class="info-form hidden">
-    <h3>Audience Registration</h3>
-    <input id="aName" placeholder="Your Name" required />
-    <input id="aPhone" placeholder="Contact No" />
-    <input id="aEmail" placeholder="Email" />
-    <button type="submit" class="submit-btn">Submit as Audience</button>
-  </form>
-
-  <!-- MAIN BOX: rappers list (left) + leaderboard (right)-->
-  <div id="mainBox" class="main-box">
-    <div id="rapperList" class="rapper-list">
-      <!-- Each rapper box is injected here -->
+        <!-- Voting Section -->
+        <div id="votingSection" class="hidden">
+            <h2>Vote for your favourite Rapper</h2>
+            <div class="rapper-list">
+                <!-- Example rapper box -->
+                <div class="rapper-box">
+                    <span class="stage-name">MC Example</span>
+                    <div class="vote-buttons">
+                        <button>1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>7</button>
+                        <button>8</button>
+                        <button>9</button>
+                        <button>10</button>
+                    </div>
+                </div>
+                <!-- More rapper boxes dynamically added later -->
+            </div>
+        </div>
     </div>
 
-    <div id="leaderboard" class="leaderboard">
-      <h3>Live Leaderboard</h3>
-      <ol id="leaderboardList"></ol>
-    </div>
-  </div>
-
-  <div class="note">Note: Har user har rapper ko ek baar per cycle vote de sakta hai. Cycle: 5 hours.</div>
-
-</div>
-
-<!-- FIREBASE CONFIG: replace with your project's config -->
-<script>
-  // Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-const firebaseConfig = {
-  apiKey: "AIzaSyBsi5yYzxa5b8o1va_CvI_yks6NOdADtT8",
-  authDomain: "sarggek-cypher.firebaseapp.com",
-  databaseURL: "https://sarggek-cypher-default-rtdb.firebaseio.com",
-  projectId: "sarggek-cypher",
-  storageBucket: "sarggek-cypher.firebasestorage.app",
-  messagingSenderId: "923101221780",
-  appId: "1:923101221780:web:a552c475b4b8fd28193581",
-  measurementId: "G-H19H9Y1YBW"
-};
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-</script>
-
-<script src="page3.js"></script>
+    <script src="page3.js"></script>
 </body>
 </html>
