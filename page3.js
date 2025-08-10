@@ -11,7 +11,8 @@
 */
 
 // CONFIG: change here for quick testing
-const CYCLE_DURATION_MS = 5 * 60 * 60 * 1000; // 5 hours -> change to 1*60*1000 for testing 1 minute
+const CYCLE_DURATION_MS = 1 * 60 * 1000; // 1 minute for testing
+
 
 // Firestore refs
 const metaDocRef = db.collection('meta').doc('currentCycle');
