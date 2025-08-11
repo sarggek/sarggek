@@ -10,14 +10,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const waveCanvas = document.getElementById('wave');
   const waveCtx = waveCanvas.getContext('2d');
 
-  // Hide loader and show app on load
+  // Hide loader after window load and show app
   window.addEventListener('load', () => {
     setTimeout(() => {
       loader.style.opacity = 0;
       loader.style.pointerEvents = 'none';
       loader.style.transition = 'opacity 300ms';
       app.classList.remove('hidden');
-      setTimeout(() => loader.style.display = 'none', 350);
+      setTimeout(() => {
+        loader.style.display = 'none';
+      }, 350);
     }, 600);
   });
 
@@ -25,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
   playBtn.addEventListener('click', () => {
     if (audioEl.paused) {
       audioEl.play();
-      playBtn.textContent = '❚❚';
+      playBtn.textContent = '❚❚'; // pause symbol
       speakerL.classList.add('playing');
       speakerR.classList.add('playing');
     } else {
@@ -36,25 +38,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Update time display on metadata load
+  // Update time display and seek slider on audio metadata load
   audioEl.addEventListener('loadedmetadata', () => {
     timeEl.textContent = formatTime(0) + ' / ' + formatTime(audioEl.duration || 0);
   });
 
-  // Update seek slider and time as audio plays
   audioEl.addEventListener('timeupdate', () => {
     const pct = (audioEl.currentTime / (audioEl.duration || 1)) * 100;
     seek.value = isFinite(pct) ? pct : 0;
     timeEl.textContent = formatTime(audioEl.currentTime) + ' / ' + formatTime(audioEl.duration || 0);
   });
 
-  // Seek audio when slider changes
   seek.addEventListener('input', () => {
     const t = (seek.value / 100) * audioEl.duration;
     audioEl.currentTime = t;
   });
 
-  // Format seconds to m:ss
   function formatTime(s) {
     if (!isFinite(s) || isNaN(s)) return '0:00';
     const m = Math.floor(s / 60);
@@ -62,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${m}:${sec < 10 ? '0' : ''}${sec}`;
   }
 
-  // Waveform visualization with WebAudio API
+  // Waveform visualization using Web Audio API
   try {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const ctx = new AudioContext();
@@ -83,11 +82,9 @@ document.addEventListener('DOMContentLoaded', () => {
       const height = waveCanvas.height = waveCanvas.clientHeight;
       waveCtx.clearRect(0, 0, width, height);
 
-      // background
       waveCtx.fillStyle = 'rgba(0,0,0,0)';
       waveCtx.fillRect(0, 0, width, height);
 
-      // waveform line
       waveCtx.lineWidth = 2;
       waveCtx.strokeStyle = 'rgba(255,190,130,0.95)';
       waveCtx.beginPath();
@@ -104,7 +101,6 @@ document.addEventListener('DOMContentLoaded', () => {
       waveCtx.lineTo(width, height / 2);
       waveCtx.stroke();
 
-      // small glow under waveform
       waveCtx.fillStyle = 'rgba(242,176,125,0.06)';
       waveCtx.fillRect(0, height / 2 + 12, width, 12);
     }
@@ -113,7 +109,7 @@ document.addEventListener('DOMContentLoaded', () => {
     console.warn('WebAudio initialization failed:', err);
   }
 
-  // Change cursor to text cursor during text selection (best effort)
+  // Change cursor when user selects text (best effort)
   document.addEventListener('selectionchange', () => {
     const sel = document.getSelection();
     if (sel && sel.toString().length > 0) {
@@ -123,21 +119,22 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Resume AudioContext on play to avoid browser block
+  // Resume AudioContext on play (some browsers block until user interaction)
   audioEl.addEventListener('play', async () => {
     try {
       if (typeof AudioContext !== 'undefined') {
         const ctx = (window.AudioContext || window.webkitAudioContext);
         if (ctx && ctx.state === 'suspended' && ctx.resume) await ctx.resume();
       }
-    } catch (e) { /* ignore */ }
+    } catch {}
   });
 
-  // Space key toggles play/pause unless typing in input or textarea
+  // Spacebar toggles play/pause, ignoring inputs/textareas
   window.addEventListener('keydown', (e) => {
-    if (e.code === 'Space' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
+    if (e.code === 'Space' && !['INPUT', 'TEXTAREA'].includes(document.activeElement.tagName)) {
       e.preventDefault();
       playBtn.click();
     }
   });
+
 });
