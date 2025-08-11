@@ -1,1 +1,136 @@
+/* ===== GLOBAL PAGE STYLES ===== */
+body {
+  font-family: Arial, sans-serif; /* Text font */
+  margin: 0; /* Default margin remove */
+  background-color: #111; /* Page background color */
+  color: #fff; /* Default text color */
+}
+
+/* ===== SONG CONTAINER ===== */
+.song-container {
+  display: flex; /* Left + Right side-by-side */
+  max-width: 1200px; /* Box ka max width */
+  margin: 50px auto; /* Center + top/bottom gap */
+  border-radius: 10px; /* Rounded corners */
+  overflow: hidden; /* Extra content hide */
+  box-shadow: 0 4px 20px rgba(0,0,0,0.5); /* Shadow */
+}
+
+/* ===== LEFT PANEL ===== */
+.song-teaser {
+  flex: 1; /* Space allocation */
+  padding: 20px;
+  background-image: url('poster.jpg'); /* Change poster image */
+  background-size: cover; /* Full cover */
+  background-position: center; /* Center focus */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end; /* Content bottom me */
+  color: #fff;
+}
+
+.song-title {
+  font-size: 28px; /* Title size */
+  margin: 0;
+}
+
+.song-desc {
+  font-size: 16px; /* Description text size */
+  margin: 5px 0 20px;
+}
+
+.view-more-btn {
+  background-color: #ff4444; /* Button color */
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+.view-more-btn:hover {
+  background-color: #ff6666; /* Hover effect */
+}
+
+/* ===== RIGHT PANEL ===== */
+.song-details {
+  flex: 2; /* Zyada space */
+  background-color: #222; /* Background color */
+  padding: 20px;
+  display: none; /* Default hidden */
+  flex-direction: column;
+  gap: 20px;
+  animation: slideIn 0.5s ease; /* Animation */
+  position: relative; /* Close button ke liye */
+}
+
+/* Slide-in animation */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #ff4444;
+  border: none;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+/* Video player */
+.video-player {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Lyrics section */
+.lyrics-box {
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 5px;
+  max-height: 150px; /* Scroll limit */
+  overflow-y: auto;
+}
+
+/* Icon links */
+.icon-links {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+.icon-links a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255,255,255,0.1);
+  padding: 8px 12px;
+  border-radius: 5px;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+.icon-links a:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+.icon-links img {
+  width: 20px; /* Icon size */
+  height: 20px;
+}
+
+/* ===== MOBILE RESPONSIVE ===== */
+@media(max-width: 768px) {
+  .song-container {
+    flex-direction: column; /* Stack */
+  }
+}
 
