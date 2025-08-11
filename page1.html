@@ -1,58 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8"> <!-- Page encoding -->
-<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile responsive -->
-<title>Song Showcase</title> <!-- Tab title -->
-<link rel="stylesheet" href="style.css"> <!-- CSS file link -->
+    <meta charset="UTF-8"> <!-- Character encoding set to UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Responsive design ke liye -->
+    <title>My Rap UI</title>
+    <link rel="stylesheet" href="style.css"> <!-- CSS file link -->
 </head>
 <body>
 
-<!-- ===== SONG SHOWCASE CONTAINER ===== -->
-<div class="song-container">
-  
-  <!-- LEFT SIDE: POSTER + TITLE + DESCRIPTION -->
-  <div class="song-teaser">
-    <h2 class="song-title">Song Title</h2> <!-- Song ka naam -->
-    <p class="song-desc">Short description of the song goes here...</p> <!-- Song short desc -->
-    <button class="view-more-btn" onclick="showDetails()">View More</button> <!-- Details panel open button -->
-  </div>
+    <!-- ===== HEADER ===== -->
+    <header>
+        <h1>MY RAP</h1> <!-- Page Title -->
+    </header>
 
-  <!-- RIGHT SIDE: FULL SONG DETAILS -->
-  <div class="song-details" id="detailsPanel">
-    <button class="close-btn" onclick="closeDetails()">✖</button> <!-- Close button -->
+    <!-- ===== MAIN CONTAINER ===== -->
+    <div class="container">
 
-    <!-- Video Player -->
-    <iframe class="video-player" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> <!-- YouTube embed -->
+        <!-- ===== LEFT SIDE: RAP LIST ===== -->
+        <div class="rap-list">
+            <!-- Rap Item -->
+            <div class="rap-item">
+                <img src="album.png" alt="Album Art" class="album-img"> <!-- Album image -->
+                <div class="rap-info">
+                    <h2>MY RAP TITLE</h2> <!-- Rap Title -->
+                    <p>Rap Description, Rap Description, Rap Description...</p> <!-- Short Description -->
+                </div>
+                <div class="arrow">&#9654;</div> <!-- Right Arrow icon -->
+            </div>
 
-    <!-- Audio Player -->
-    <audio controls>
-      <source src="song.mp3" type="audio/mpeg"> <!-- Audio file -->
-    </audio>
+            <!-- Duplicate Rap Items -->
+            <div class="rap-item">
+                <img src="album.png" alt="Album Art" class="album-img">
+                <div class="rap-info">
+                    <h2>MY 2 RAP TITLE</h2>
+                    <p>Rap Description, Rap Description, Rap Description...</p>
+                </div>
+                <div class="arrow">&#9654;</div>
+            </div>
 
-    <!-- Lyrics -->
-    <div class="lyrics-box">
-      <h3>Lyrics</h3>
-      <p>Your song lyrics go here...</p>
+        </div>
+
+        <!-- ===== RIGHT SIDE: RAP DETAILS ===== -->
+        <div class="rap-details">
+            <!-- Title Row -->
+            <div class="detail-header">
+                <h2>MY RAP TITLE</h2>
+                <span>Uploaded Date : 01-05-2025</span>
+            </div>
+
+            <!-- Cassette Image -->
+            <img src="cassette.png" alt="Cassette" class="cassette-img">
+
+            <!-- Audio Player -->
+            <audio controls>
+                <source src="sample.mp3" type="audio/mpeg">
+            </audio>
+
+            <!-- Lyrics Section -->
+            <div class="lyrics-section">
+                <h3>MY RAP LYRIC</h3>
+                <div class="lyrics-text">
+                    My rap lyric, My rap lyric, My rap lyric, My rap lyric...
+                </div>
+            </div>
+
+            <!-- Buttons -->
+            <button class="breakdown-btn">MY RAP LYRIC BREAKDOWN</button>
+            <button class="breakdown-btn">MY RAP BEAT BREAKDOWN</button>
+
+        </div>
     </div>
-
-    <!-- Icon Links -->
-    <div class="icon-links">
-      <a href="https://youtube.com" target="_blank">
-        <img src="youtube.png" alt="YouTube"> YouTube
-      </a>
-      <a href="https://instagram.com" target="_blank">
-        <img src="instagram.png" alt="Instagram"> Instagram
-      </a>
-      <a href="https://spotify.com" target="_blank">
-        <img src="spotify.png" alt="Spotify"> Spotify
-      </a>
-    </div>
-  </div>
-
-</div>
 
 <script src="script.js"></script> <!-- JS file link -->
 </body>
 </html>
-
