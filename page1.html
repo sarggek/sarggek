@@ -4,10 +4,7 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Rap & Song — Track Page</title>
-
   <link rel="icon" type="image/png" href="favicon.ico">
-
-  <!-- main css -->
   <link rel="stylesheet" href="page1.css">
 </head>
 <body>
@@ -17,7 +14,7 @@
     <img src="disk.png" alt="Loading..." id="loader-icon">
   </div>
 
-  <!-- MAIN WRAPPER -->
+  <!-- Main app content hidden initially -->
   <div id="app" class="hidden">
 
     <!-- TOP TITLE BAR -->
@@ -25,15 +22,13 @@
       <div class="topbar-inner">RAP &amp; SONG</div>
     </div>
 
-    <!-- BANNER: Album cover + description -->
+    <!-- BANNER -->
     <section class="banner">
       <img class="album" src="album-cover.png" alt="album cover">
       <div class="meta">
         <h2 id="song-title">No Dowry &amp; Alimony</h2>
         <p id="song-desc">
           Description description description... (replace with your short description)
-          Description description description... (replace with your short description)
-          <!-- truncated for brevity -->
         </p>
       </div>
     </section>
@@ -85,7 +80,6 @@
         <div class="card-title">Lyric</div>
         <div class="lyric-text" id="lyric">
           Lyric Lyric Lyric Lyric Lyric Lyric Lyric Lyric Lyric...
-          <!-- replace with full lyrics -->
         </div>
       </div>
     </section>
@@ -98,7 +92,6 @@
           <div class="beat-item">Drums: Kick, Snare, Hi-hat, Crash Cymbal</div>
           <div class="beat-item">Bass: 808 Sub-bass</div>
           <div class="beat-item">Melody: Synth Pad, Electric Piano, Lead Synth</div>
-
           <div class="card-title small">Live Instruments</div>
           <div class="beat-item">Acoustic Guitar, Live Shaker, Tabla</div>
         </div>
@@ -129,12 +122,9 @@
       </div>
     </footer>
 
-  </div><!-- /app -->
+  </div>
 
-  <!-- Hidden audio tag -->
   <audio id="audio-src" src="song.mp3" crossorigin="anonymous"></audio>
-
-  <!-- main javascript -->
   <script src="page1.js"></script>
 </body>
 </html>
