@@ -174,3 +174,15 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
 }); // DOMContentLoaded end
+// Loader hide after page load
+window.addEventListener("load", function () {
+  const loader = document.getElementById("loader");
+  const content = document.getElementById("main-content");
+
+  // 500ms delay before hiding loader
+  setTimeout(() => {
+    loader.style.display = "none";
+    content.style.display = "block";
+  }, 500);
+});
+
