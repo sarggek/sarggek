@@ -8,11 +8,14 @@
 
 /* Background Gradient */
 body {
-  background: linear-gradient(180deg, #7a4b2b 0%, #3a1d0c 100%);
-  color: #d7996b;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  /* Remove existing linear-gradient background */
+  background: url('Background.webp') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--muted-text);
+  cursor: url('Cursors.png'), auto;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Header */
