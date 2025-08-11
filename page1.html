@@ -37,13 +37,27 @@
                 <span>Uploaded Date : 01-05-2025</span>
             </div>
 
-            <!-- Cassette Image -->
-            <video src="casette video final.mp4" autoplay loop muted playsinline width="100"></video>
+           <div class="music-box">
+    <!-- Cassette Video -->
+    <video src="casette-video-final.mp4" autoplay loop muted playsinline></video>
 
-            <!-- Audio Player -->
-            <audio controls>
-                <source src="sample.mp3" type="audio/mpeg">
-            </audio>
+    <!-- Radio Style Audio Player -->
+    <div class="radio-player">
+        <div class="radio-speaker"></div>
+        <div class="radio-controls">
+            <button id="playPause">▶</button>
+            <input type="range" id="seekBar" value="0" min="0" max="100">
+        </div>
+        <div class="radio-knobs">
+            <div class="knob"></div>
+            <div class="knob"></div>
+        </div>
+        <audio id="player">
+            <source src="sample.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+</div>
+
 
             <!-- Lyrics Section -->
             <div class="lyrics-section">
