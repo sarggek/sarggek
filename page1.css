@@ -131,3 +131,100 @@ audio {
     margin-top: 8px;
     border: none;
 }
+
+.music-box {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background: linear-gradient(135deg, #222, #444);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* Cassette video */
+.music-box video {
+    width: 150px;
+    border-radius: 10px;
+}
+
+/* Radio Player Styling */
+.radio-player {
+    width: 250px;
+    background: #c49a6c; /* Radio body color */
+    border-radius: 15px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.4);
+}
+
+/* Speaker grill look */
+.radio-speaker {
+    width: 90%;
+    height: 80px;
+    background: repeating-linear-gradient(
+        90deg,
+        #444,
+        #444 2px,
+        #222 2px,
+        #222 4px
+    );
+    border-radius: 8px;
+    margin-bottom: 10px;
+}
+
+/* Controls */
+.radio-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.radio-controls button {
+    background: #ff6600;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 50%;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.radio-controls button:hover {
+    background: #ff8533;
+}
+
+.radio-controls input[type="range"] {
+    -webkit-appearance: none;
+    height: 5px;
+    background: #ccc;
+    border-radius: 5px;
+    outline: none;
+    cursor: pointer;
+}
+
+.radio-controls input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 15px;
+    width: 15px;
+    background: #ff6600;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Knobs */
+.radio-knobs {
+    display: flex;
+    gap: 15px;
+}
+
+.knob {
+    width: 25px;
+    height: 25px;
+    background: #222;
+    border: 3px solid #888;
+    border-radius: 50%;
+}
+
