@@ -118,3 +118,43 @@ body{
   .speaker{ width:64px; height:64px; }
   #seek{ width:45% }
 }
+/* --- Custom Cursor --- */
+body {
+  cursor: url("cursor.png"), auto; /* Default cursor */
+}
+
+/* Hover cursor */
+a:hover, button:hover, .hover-target:hover {
+  cursor: url("cursor-hover.png"), pointer;
+}
+
+/* Text selection cursor */
+input[type="text"], textarea, .text-select {
+  cursor: url("cursor-text.png"), text;
+}
+
+/* --- Loader Styling --- */
+#loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #1a1a1a; /* Loader background color */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+#loader-icon {
+  width: 80px; /* Loader icon size */
+  height: 80px;
+  animation: rotateLoader 1.5s linear infinite;
+}
+
+/* Loader rotation animation */
+@keyframes rotateLoader {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
