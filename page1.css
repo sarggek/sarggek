@@ -120,17 +120,17 @@ body{
 }
 /* --- Custom Cursor --- */
 body {
-  cursor: url("cursor.png"), auto; /* Default cursor */
+  cursor: url("Cursors.png"), auto; /* Default cursor */
 }
 
 /* Hover cursor */
 a:hover, button:hover, .hover-target:hover {
-  cursor: url("cursor-hover.png"), pointer;
+  cursor: url("Cursorshand.png"), pointer;
 }
 
 /* Text selection cursor */
 input[type="text"], textarea, .text-select {
-  cursor: url("cursor-text.png"), text;
+  cursor: url("Cursorstext.png"), text;
 }
 
 /* --- Loader Styling --- */
