@@ -10,11 +10,14 @@
 *{box-sizing:border-box}
 html,body{height:100%}
 body{
-  margin:0; font-family: "Segoe UI", Roboto, Arial, sans-serif;
-  background: linear-gradient(180deg, var(--bg-top) 0%, #3f2416 30%, var(--bg-bottom) 100%);
-  color:var(--muted-text);
+  margin: 0;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  /* Remove existing linear-gradient background */
+  background: url('Background.webp') no-repeat center center fixed;
+  background-size: cover;
+  color: var(--muted-text);
   cursor: url('Cursors.png'), auto;
-  -webkit-font-smoothing:antialiased;
+  -webkit-font-smoothing: antialiased;
 }
 
 /* Loader styles */
