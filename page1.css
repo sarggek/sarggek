@@ -209,12 +209,12 @@ body{
 }
 .two-col{
   display:flex;
-  gap:8px;
+  gap:6px;
   align-items:flex-start;
 }
 .labels, .values{
   list-style:none;
-  padding:8px 12px;
+  padding:6px 12px;
   margin:0;
 }
 .labels li{
