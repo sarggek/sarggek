@@ -1,29 +1,5 @@
-/* =========================
-   page1.js
-   - Handles loader hide
-   - Audio play/pause, seek, time display
-   - Waveform drawing using WebAudio API (analyser node)
-   - Cursor change during text selection (best-effort)
-   ========================= */
-
-/* =========== ASSETS NOTE ===========
-Replace the following files in same folder or change paths in HTML:
-- favicon.png         (browser tab icon)
-- loader.png          (preloader image shown while page loads)
-- cursor.png          (default cursor image)
-- cursor-hover.png    (cursor used for hover on clickable elements)
-- cursor-text.png     (cursor used when user selects text)
-- speaker-left.png    (left speaker graphic)
-- speaker-right.png   (right speaker graphic)
-- album-cover.png     (banner album art)
-- spotify.png         (stream icon)
-- apple-music.png     (stream icon)
-- song.mp3            (audio file to play)
-====================================== */
-
-// wait until DOM
 document.addEventListener('DOMContentLoaded', () => {
-  const preloader = document.getElementById('preloader');
+  const loader = document.getElementById('loader');
   const app = document.getElementById('app');
   const audioEl = document.getElementById('audio-src');
   const playBtn = document.getElementById('play-btn');
@@ -34,23 +10,22 @@ document.addEventListener('DOMContentLoaded', () => {
   const waveCanvas = document.getElementById('wave');
   const waveCtx = waveCanvas.getContext('2d');
 
-  // hide preloader after small delay (gives time to init audio/visual)
+  // Hide loader and show app on load
   window.addEventListener('load', () => {
     setTimeout(() => {
-      preloader.style.opacity = 0;
-      preloader.style.pointerEvents = 'none';
-      preloader.style.transition = 'opacity 300ms';
+      loader.style.opacity = 0;
+      loader.style.pointerEvents = 'none';
+      loader.style.transition = 'opacity 300ms';
       app.classList.remove('hidden');
-      // fully remove from flow after fade
-      setTimeout(()=> preloader.style.display = 'none', 350);
+      setTimeout(() => loader.style.display = 'none', 350);
     }, 600);
   });
 
-  // Play / Pause
+  // Play / Pause toggle
   playBtn.addEventListener('click', () => {
     if (audioEl.paused) {
       audioEl.play();
-      playBtn.textContent = '❚❚'; // pause symbol
+      playBtn.textContent = '❚❚';
       speakerL.classList.add('playing');
       speakerR.classList.add('playing');
     } else {
@@ -61,22 +36,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Time update & seek
+  // Update time display on metadata load
   audioEl.addEventListener('loadedmetadata', () => {
     timeEl.textContent = formatTime(0) + ' / ' + formatTime(audioEl.duration || 0);
   });
 
+  // Update seek slider and time as audio plays
   audioEl.addEventListener('timeupdate', () => {
     const pct = (audioEl.currentTime / (audioEl.duration || 1)) * 100;
     seek.value = isFinite(pct) ? pct : 0;
     timeEl.textContent = formatTime(audioEl.currentTime) + ' / ' + formatTime(audioEl.duration || 0);
   });
 
+  // Seek audio when slider changes
   seek.addEventListener('input', () => {
     const t = (seek.value / 100) * audioEl.duration;
     audioEl.currentTime = t;
   });
 
+  // Format seconds to m:ss
   function formatTime(s) {
     if (!isFinite(s) || isNaN(s)) return '0:00';
     const m = Math.floor(s / 60);
@@ -84,10 +62,7 @@ document.addEventListener('DOMContentLoaded', () => {
     return `${m}:${sec < 10 ? '0' : ''}${sec}`;
   }
 
-  /* ===== Waveform visual using WebAudio API =====
-     - creates AnalyserNode, reads frequency/time domain data
-     - draws smooth waveform to canvas
-  */
+  // Waveform visualization with WebAudio API
   try {
     const AudioContext = window.AudioContext || window.webkitAudioContext;
     const ctx = new AudioContext();
@@ -108,13 +83,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const height = waveCanvas.height = waveCanvas.clientHeight;
       waveCtx.clearRect(0, 0, width, height);
 
-      // background subtle
+      // background
       waveCtx.fillStyle = 'rgba(0,0,0,0)';
-      waveCtx.fillRect(0,0,width,height);
+      waveCtx.fillRect(0, 0, width, height);
 
       // waveform line
       waveCtx.lineWidth = 2;
-      waveCtx.strokeStyle = 'rgba(255,190,130,0.95)'; // warm orange line
+      waveCtx.strokeStyle = 'rgba(255,190,130,0.95)';
       waveCtx.beginPath();
 
       const sliceWidth = width / bufferLength;
@@ -131,58 +106,38 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // small glow under waveform
       waveCtx.fillStyle = 'rgba(242,176,125,0.06)';
-      waveCtx.fillRect(0, height/2 + 12, width, 12);
+      waveCtx.fillRect(0, height / 2 + 12, width, 12);
     }
     draw();
   } catch (err) {
-    // WebAudio not supported or blocked until user interaction
     console.warn('WebAudio initialization failed:', err);
   }
 
-  /* ===== Cursor change on text selection (best-effort) =====
-     CSS ::selection can't change cursor; use JS to set body cursor during selection
-  */
+  // Change cursor to text cursor during text selection (best effort)
   document.addEventListener('selectionchange', () => {
     const sel = document.getSelection();
     if (sel && sel.toString().length > 0) {
-      // when user selects text, change cursor to text-cursor PNG
-      document.body.style.cursor = "url('cursor-text.png'), text";
+      document.body.style.cursor = "url('Cursorstext.png'), text";
     } else {
-      document.body.style.cursor = "url('cursor.png'), auto";
+      document.body.style.cursor = "url('Cursors.png'), auto";
     }
   });
 
-  /* ===== Accessibility: resume AudioContext on user gesture =====
-     Some browsers block audio context until a user gesture — resume on play
-  */
+  // Resume AudioContext on play to avoid browser block
   audioEl.addEventListener('play', async () => {
     try {
       if (typeof AudioContext !== 'undefined') {
-        // resume context if suspended
         const ctx = (window.AudioContext || window.webkitAudioContext);
         if (ctx && ctx.state === 'suspended' && ctx.resume) await ctx.resume();
       }
     } catch (e) { /* ignore */ }
   });
 
-  /* ===== Keyboard space toggles play/pause ===== */
+  // Space key toggles play/pause unless typing in input or textarea
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && document.activeElement.tagName !== 'INPUT' && document.activeElement.tagName !== 'TEXTAREA') {
       e.preventDefault();
       playBtn.click();
     }
   });
-
-}); // DOMContentLoaded end
-// Loader hide after page load
-window.addEventListener("load", function () {
-  const loader = document.getElementById("loader");
-  const content = document.getElementById("main-content");
-
-  // 500ms delay before hiding loader
-  setTimeout(() => {
-    loader.style.display = "none";
-    content.style.display = "block";
-  }, 500);
 });
-
