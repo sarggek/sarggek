@@ -1,1 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"> <!-- Page encoding -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Mobile responsive -->
+<title>Song Showcase</title> <!-- Tab title -->
+<link rel="stylesheet" href="style.css"> <!-- CSS file link -->
+</head>
+<body>
+
+<!-- ===== SONG SHOWCASE CONTAINER ===== -->
+<div class="song-container">
+  
+  <!-- LEFT SIDE: POSTER + TITLE + DESCRIPTION -->
+  <div class="song-teaser">
+    <h2 class="song-title">Song Title</h2> <!-- Song ka naam -->
+    <p class="song-desc">Short description of the song goes here...</p> <!-- Song short desc -->
+    <button class="view-more-btn" onclick="showDetails()">View More</button> <!-- Details panel open button -->
+  </div>
+
+  <!-- RIGHT SIDE: FULL SONG DETAILS -->
+  <div class="song-details" id="detailsPanel">
+    <button class="close-btn" onclick="closeDetails()">✖</button> <!-- Close button -->
+
+    <!-- Video Player -->
+    <iframe class="video-player" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe> <!-- YouTube embed -->
+
+    <!-- Audio Player -->
+    <audio controls>
+      <source src="song.mp3" type="audio/mpeg"> <!-- Audio file -->
+    </audio>
+
+    <!-- Lyrics -->
+    <div class="lyrics-box">
+      <h3>Lyrics</h3>
+      <p>Your song lyrics go here...</p>
+    </div>
+
+    <!-- Icon Links -->
+    <div class="icon-links">
+      <a href="https://youtube.com" target="_blank">
+        <img src="youtube.png" alt="YouTube"> YouTube
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="instagram.png" alt="Instagram"> Instagram
+      </a>
+      <a href="https://spotify.com" target="_blank">
+        <img src="spotify.png" alt="Spotify"> Spotify
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<script src="script.js"></script> <!-- JS file link -->
+</body>
+</html>
 
