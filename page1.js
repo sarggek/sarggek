@@ -1,10 +1,8 @@
-// ===== SHOW DETAILS FUNCTION =====
-function showDetails() {
-  document.getElementById("detailsPanel").style.display = "flex"; // Panel visible
-}
+// Future customization ke liye JS
+// Example: Rap click karne par details update karna
 
-// ===== CLOSE DETAILS FUNCTION =====
-function closeDetails() {
-  document.getElementById("detailsPanel").style.display = "none"; // Panel hide
-}
-
+document.querySelectorAll('.rap-item').forEach(item => {
+    item.addEventListener('click', () => {
+        alert("Rap clicked: " + item.querySelector('h2').textContent);
+    });
+});
