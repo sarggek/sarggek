@@ -8,8 +8,6 @@
 
 /* Background Gradient */
 body {
-  margin: 0;
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
   /* Remove existing linear-gradient background */
   background: url('Background.webp') no-repeat center center fixed;
   background-size: cover;
