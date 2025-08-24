@@ -1,0 +1,151 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Background Image */
+body {
+  background: url("Background.webp") no-repeat center center/cover;
+  font-family: Arial, sans-serif;
+  color: #fff;
+
+  /* Custom cursors */
+  cursor: url("Cursors.png"), auto;
+}
+
+p, h1, h2 {
+  cursor: url("Cursorstext.png"), text;
+}
+
+a, button, .icons img, .next-btn {
+  cursor: url("Cursorshand.png"), pointer;
+}
+
+/* Top Icons */
+.top-icons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  padding: 15px;
+}
+
+.top-icons img {
+  width: 32px;
+  height: 32px;
+  transition: transform 0.2s;
+}
+
+.top-icons img:hover {
+  transform: scale(1.2);
+}
+
+/* Header */
+header {
+  text-align: right;
+  padding: 20px 40px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff944d;
+}
+
+/* Story Cards Section */
+.cards-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px;
+  flex-wrap: wrap;
+}
+
+.story-card {
+  width: 180px;
+  height: 280px;
+  background: rgba(0,0,0,0.7);
+  border-radius: 10px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255,148,77,0.6);
+}
+
+.poster {
+  width: 100%;
+  height: 80%;
+  object-fit: cover;
+}
+
+.icons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px;
+}
+
+.icons img {
+  width: 28px;
+  height: 28px;
+  transition: transform 0.3s;
+}
+
+.icons img:hover {
+  transform: scale(1.2);
+}
+
+/* Add Card */
+.add-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 60px;
+  font-weight: bold;
+  color: #000;
+  background: #fff;
+}
+
+.add-card span {
+  pointer-events: none;
+}
+
+.next-btn {
+  font-size: 40px;
+  font-weight: bold;
+  color: #ff944d;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.next-btn:hover {
+  transform: translateX(5px);
+}
+
+/* Chapter Section */
+.chapter {
+  background: rgba(255,148,77,0.95);
+  color: #000;
+  padding: 20px;
+  margin: 30px;
+  border-radius: 10px;
+  display: none;  /* hidden by default */
+  animation: slideDown 0.5s ease forwards;
+}
+
+.chapter h2 {
+  margin-bottom: 10px;
+}
+
+.chapter p {
+  line-height: 1.5;
+}
+
+/* Animation */
+@keyframes slideDown {
+  from {opacity: 0; transform: translateY(-20px);}
+  to {opacity: 1; transform: translateY(0);}
+}
