@@ -12,6 +12,43 @@ const chapters = {
     title: "Chapter 3 : Nayi Soch",
     text: "Chapter 3 ka text yahan likh sakte ho... freedom aur naye decisions."
   }
+4: {
+    title: "Chapter 4 : Nayi Soch",
+    text: "Chapter 4 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+
+5: {
+    title: "Chapter 5 : Nayi Soch",
+    text: "Chapter 5 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+6: {
+    title: "Chapter 6 : Nayi Soch",
+    text: "Chapter 6 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+7: {
+    title: "Chapter 7 : Nayi Soch",
+    text: "Chapter 7 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+8: {
+    title: "Chapter 8 : Nayi Soch",
+    text: "Chapter 8 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+9: {
+    title: "Chapter 9 : Nayi Soch",
+    text: "Chapter 9 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+10: {
+    title: "Chapter 10 : Nayi Soch",
+    text: "Chapter 10 ka text yahan likh sakte ho... freedom aur naye decisions."
+  }
+
+
+
+
+
+
+
+  
 };
 
 // Card click → Show Chapter
