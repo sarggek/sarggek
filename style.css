@@ -3,317 +3,189 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* Background */
 body {
-  font-family: 'Arial', sans-serif;
-  background: url("Background.webp") no-repeat center center/cover;
-  height: 100vh;
-  overflow: hidden;
-  color: white;
-  cursor: url("Cursors.png") 0 0, auto;
+  background: url('Background.webp') no-repeat center center fixed;
+  background-size: cover;
+  color: #dcdcdc;
+  cursor: url('Cursors.png'), auto;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Clickable items */
-a, button {
-  cursor: url("Cursorshand.png") 0 0, pointer;
-}
-
-/* Text selection / typing cursor */
-input, textarea, [contenteditable="true"], 
-p, h1, h2, h3, h4, h5, h6, span {
-  cursor: url("Cursorstext.png") 0 0, text;
-}
-
-/* 🎧 Preloader Style */
-#preloader {
+/* Loader */
+#loader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: black;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: #4f2d13;
   display: flex;
+  align-items: center;
   justify-content: center;
+  z-index: 9999;
+}
+
+#loader img {
+  width: 100px;
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.1); opacity: 0.7; }
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
   align-items: center;
-  z-index: 100;
+  background-color: #4f2d13;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
 }
 
-.spinner {
-  width: 120px;
-  animation: spin 2s linear infinite;
+.logo-vertical {
+  writing-mode: vertical-rl;
+  font-weight: 800;
+  font-size: 20px;
+  letter-spacing: 3px;
+  border-left: 3px solid #d7996b;
+  padding-left: 10px;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to   { transform: rotate(360deg); }
+.header-text {
+  font-weight: 700;
+  font-size: 18px;
 }
 
-/* 🌟 Hero Section */
-.hero-section {
-  height: 100vh;
+/* Main content */
+main {
+  flex-grow: 1;
+  padding: 20px 30px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+.song-card {
+  display: flex;
+  background: rgba(79, 45, 19, 0.7);
+  border-radius: 5px;
+  padding: 15px;
   align-items: center;
-  text-align: center;
-  padding: 20px;
-  position: relative;
-}
-
-.sarggek-details h1 {
-  font-size: 4rem;
-  margin-bottom: 10px;
-  font-weight: bold;
-  text-shadow: 2px 2px 8px #000;
-}
-
-.sarggek-details p {
-  font-size: 1.2rem;
-  max-width: 700px;
-  text-shadow: 1px 1px 5px #000;
-}
-
-/* 🔘 Top Middle Buttons */
-.top-buttons {
-  position: absolute;
-  top: 20px;
-  display: flex;
-  gap: 15px;
-}
-
-.top-buttons a img {
-  height: 50px;
-  transition: transform 0.3s ease;
-}
-
-.top-buttons a img:hover {
-  transform: scale(1.1);
-}
-
-/* 🌐 Social Media Bottom Center */
-.social-links {
-  position: absolute;
-  bottom: 20px;
-  display: flex;
-  gap: 20px;
-}
-
-.social-links img {
-  height: 40px;
-  filter: drop-shadow(0 0 5px #000);
-  transition: transform 0.3s ease;
-}
-
-.social-links img:hover {
-  transform: scale(1.2);
-}
-
-/* 🎵 Audio Player Hidden */
-#bg-audio {
-  display: none;
-}
-
-/* Common text color */
-body {
-  color: #fdedcf;
-}
-
-a {
-  color: #fdedcf;
-  text-decoration: none;
-}
-
-a:hover {
-  color: #fff1e5;
-}
-
-/* Common nav container */
-.side-nav {
-  position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  z-index: 5; /* icons upar */
-}
-
-.left-nav { left: 10px; }
-.right-nav { right: 10px; }
-
-/* Common nav item */
-.nav-item {
-  display: flex;
-  align-items: center;
-  background: rgba(0, 0, 0, 0.7);
-  border-radius: 30px;
-  padding: 8px;
-  text-decoration: none;
-  overflow: hidden;
-  width: 40px; /* default sirf icon ka size */
-  transition: all 0.3s ease;
-}
-
-/* Icon styling */
-.nav-item img {
-  width: 24px;
-  height: 24px;
-  transition: transform 0.3s ease;
-}
-
-/* Text hidden initially */
-.nav-item span {
-  color: #fff;
-  font-size: 14px;
-  white-space: nowrap;
-  opacity: 0;
-  margin-left: 8px;
-  transition: opacity 0.3s ease;
-}
-
-/* Left nav hover effect */
-.left-nav .nav-item:hover {
-  width: 120px; /* hover pe box expand */
-}
-
-.left-nav .nav-item:hover span {
-  opacity: 1;
-}
-
-/* Right nav: reverse direction */
-.right-nav .nav-item {
-  flex-direction: row-reverse;
-}
-
-.right-nav .nav-item span {
-  margin-left: 0;
-  margin-right: 8px;
-}
-
-.right-nav .nav-item:hover {
-  width: 120px;
-}
-
-.right-nav .nav-item:hover span {
-  opacity: 1;
-}
-
-/* Icon zoom effect */
-.nav-item:hover img {
-  transform: scale(1.2);
-}
-
-
-/* Hindi Background Canvas */
-#hindiBackground {
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: 0; /* background me hi rahe */
-}
-/* -------------------------
-   SARGGEK ANALOG CLOCK
-   Paste in style.css
-   ------------------------- */
-#sarggek-clock {
-  position: fixed;
-  top: 18px;        /* adjust gap from top */
-  right: 18px;      /* adjust gap from right */
-  width: 110px;     /* clock size - change if needed */
-  text-align: center;
-  z-index: 50;      /* ensure above nav/buttons */
-  font-family: Arial, sans-serif;
-  user-select: none;
-  pointer-events: auto;
+  gap: 15px;
+  animation: fadeIn 1.5s ease forwards;
 }
 
-/* clock circle */
-.clock-face {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  border: 6px solid #60402a;            /* brown border */
-  background: #f3e7e0;                  /* brownish-white face */
-  position: relative;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.25) inset, 0 6px 18px rgba(0,0,0,0.25);
-  display: inline-block;
-  transform: translateZ(0);
-}
-
-/* common hand style */
-.hand {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  transform-origin: 50% 90%; /* rotate around bottom of hand */
-  transform: translate(-50%, -100%) rotate(0deg);
-  transition: transform 0.1s linear;
+.song-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
   border-radius: 4px;
+  border: 1px solid #d7996b;
 }
 
-/* hour hand (short & thick) */
-.hand.hour {
-  width: 6px;
-  height: 30%;
-  background: #3b2a1f;  /* dark brown */
-  z-index: 3;
+.song-info {
+  flex-grow: 1;
 }
 
-/* minute hand (medium) */
-.hand.minute {
-  width: 4px;
-  height: 40%;
-  background: #3b2a1f;
-  z-index: 2;
+.song-info h2 {
+  font-weight: 700;
+  margin-bottom: 5px;
 }
 
-/* second hand (thin & longer) */
-.hand.second {
-  width: 2px;
-  height: 45%;
-  background: #2b1b14;  /* even darker */
-  z-index: 1;
+.song-info p {
+  font-size: 14px;
+  line-height: 1.2;
+  color: #c59e6c;
 }
 
-/* center pin */
-.center-dot {
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  background: #3b2a1f;
-  border-radius: 50%;
-  left: 50%;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-  z-index: 4;
+.view-more {
+  background: linear-gradient(180deg, #8f5e35, #4f2d13);
+  border: none;
+  padding: 12px 20px;
+  color: #d7996b;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-/* label under clock - small brownish-white background */
-.clock-label {
-  margin-top: 6px;
-  background: rgba(96,64,42,0.08); /* subtle brown tint */
-  color: #60402a;
-  font-size: 12px;
-  padding: 4px 8px;
-  border-radius: 6px;
-  display: inline-block;
-  min-width: 80px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.12);
+.view-more:hover {
+  background: #d7996b;
+  color: #4f2d13;
+  transform: scale(1.05);
 }
 
-/* responsive: smaller on narrow screens */
-@media (max-width: 480px) {
-  #sarggek-clock { width: 86px; right: 12px; top: 12px; }
-  .clock-face { width: 86px; height: 86px; border-width:5px; }
-  .hand.hour { width:5px; }
-  .hand.minute { width:3px; }
-  .center-dot { width:8px; height:8px; }
-  .clock-label { font-size:11px; min-width:72px; }
+/* Footer */
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #4f2d13;
+  padding: 10px 30px;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.3);
 }
 
+.footer-btn {
+  background: none;
+  border: 1px solid #d7996b;
+  color: #d7996b;
+  padding: 8px 18px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
 
+.footer-btn:hover {
+  background-color: #d7996b;
+  color: #4f2d13;
+}
+
+.stream-icons img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  cursor: pointer;
+  animation: bounce 2s infinite ease-in-out;
+}
+
+.stream-icons img:nth-child(even) {
+  animation-delay: 1s;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(15px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  main {
+    flex-direction: column;
+    padding: 15px;
+  }
+  .song-card {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .view-more {
+    width: 100%;
+    margin-top: 10px;
+  }
+  footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
