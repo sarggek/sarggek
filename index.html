@@ -1,240 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sarggek - Official Site</title>
-  <link rel="icon" type="image/png" href="favicon.ico">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sarggek | Home</title>
   <link rel="stylesheet" href="style.css">
-
+  <script src="script.js" defer></script>
+  <link rel="icon" type="image/png" href="favicon.png">
 </head>
 <body>
-<canvas id="hindiBackground"></canvas>
-  
-<!-- ANALOG CLOCK (paste inside <body>) -->
-<div id="sarggek-clock" aria-label="Sarggek Clock">
-  <div class="clock-face">
-    <div class="hand hour" id="hour-hand"></div>
-    <div class="hand minute" id="minute-hand"></div>
-    <div class="hand second" id="second-hand"></div>
-    <div class="center-dot"></div>
-  </div>
-  <div class="clock-label" id="clock-label"></div>
-</div>
-
-<!-- LEFT SIDE NAVIGATION -->
-<div class="side-nav left-nav">
-  <a href="myrap.html" class="nav-item">
-    <img src="My Rap.png" alt="My Rap"><span>My Rap</span>
-  </a>
-  <a href="mykahani.html" class="nav-item">
-    <img src="My Kahani.png" alt="My Kahani"><span>My Kahani</span>
-  </a>
-  <a href="page3.html" class="nav-item">
-    <img src="Sarggek_Cypher.png" alt="Sarggek_Cypher"><span>Cypher</span>
-  </a>
-</div>
-
-<!-- RIGHT SIDE NAVIGATION -->
-<div class="side-nav right-nav">
-  <a href="#gallery" class="nav-item">
-    <img src="My Gallery.png" alt="Gallery Icon"><span>Gallery</span>
-  </a>
-  <a href="#merch" class="nav-item">
-    <img src="My Merch.png" alt="Merch Icon"><span>Merch</span>
-  </a>
-  <a href="#contact" class="nav-item">
-    <img src="My Contact.png" alt="Contact Icon"><span>Contact</span>
-  </a>
-</div>
-
-
-  <!-- 🔁 Preloader Section -->
-  <div id="preloader">
-    <img src="disk.png" alt="Loading..." class="spinner" />
+  <!-- Loader -->
+  <div id="loader">
+    <img src="logo.png" alt="Loading...">
   </div>
 
-  <!-- 🎵 Background Audio -->
-  <audio autoplay loop id="bg-audio">
-    <source src="assets/audio.mp3" type="audio/mp3">
-    Your browser does not support the audio element.
-  </audio>
+  <!-- Header -->
+  <header>
+    <div class="logo-vertical">SARGGEK</div>
+    <div class="header-text">Independent Rapper</div>
+  </header>
 
-  <!-- 📄 Main Content -->
-  <div id="main-content" style="display:none;">
-    <div class="hero-section">
-      <!-- Background image is handled in CSS -->
-
-      <!-- 🔘 PNG Navigation Buttons -->
-      <div class="top-buttons">
-        <a href="page1.html"><img src="Rap_Botton.png" alt="Go to Page 1" /></a>
-        <a href="page2.html"><img src="Book_Botton.png" alt="Go to Page 2" /></a>
-        <!-- Add more buttons if needed -->
+  <!-- Main -->
+  <main>
+    <div class="song-card">
+      <img src="Background.webp" alt="Song Poster" class="song-image">
+      <div class="song-info">
+        <h2>No Dowry & Alimony</h2>
+        <p>Rap with a social message, mixing raw bars with storytelling.</p>
       </div>
-
-      <!-- 👑 Sarggek Details -->
-      <div class="sarggek-details">
-        <h1>Sarggek</h1>
-<p>This is my golden shining text</p>
-      </div>
-
-      <!-- 🌐 Social Media Links -->
-      <div class="social-links">
-        <a href="https://www.instagram.com/sarggek/" target="_blank">
-          <img src="instagram.png" alt="Instagram" />
-        </a>
-        <a href="https://www.youtube.com/@Sarggek" target="_blank">
-          <img src="youtube.png" alt="YouTube" />
-        </a>
-        <a href="https://x.com/sarggek" target="_blank">
-          <img src="x.png" alt="X" />
-        </a>
-         <a href="https://in.pinterest.com/sarggek/" target="_blank">
-          <img src="pinterest.png" alt="Pinterest" />
-        </a>
-         <a href="https://www.threads.com/@sarggek" target="_blank">
-          <img src="threads.png" alt="Threads" />
-        </a>
-        <a href="https://www.facebook.com/profile.php?id=61573940717040" target="_blank">
-          <img src="facebook.png" alt="Facebook" />
-        </a>
-        <a href="https://www.quora.com/profile/Sarggek-1"_blank">
-          <img src="quora.png" alt="Quora" />
-        </a>
-        <!-- Add more icons as needed -->
-      </div>
+      <a href="mykahani.html"><button class="view-more">View More</button></a>
     </div>
-  </div>
+  </main>
 
-  <!-- 🧠 JS to control loader -->
-  <script>
-    window.addEventListener("load", function () {
-      const preloader = document.getElementById("preloader");
-      const main = document.getElementById("main-content");
-      preloader.style.display = "none";
-      main.style.display = "block";
-    });
-  </script>
-  <script>
-const canvas = document.getElementById('hindiBackground');
-const ctx = canvas.getContext('2d');
-
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-const hindiLetters = [
-  'अ','आ','इ','ई','उ','ऊ','ए','ऐ','ओ','औ',
-  'क','ख','ग','घ','च','छ','ज','झ','ट','ठ',
-  'ड','ढ','ण','त','थ','द','ध','न','प','फ',
-  'ब','भ','म','य','र','ल','व','श','ष','स','ह'
-];
-
-let particles = [];
-
-class Particle {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-    this.letter = hindiLetters[Math.floor(Math.random() * hindiLetters.length)];
-    this.size = Math.random() * 40 + 15; // chota se bada
-    this.speedX = (Math.random() - 0.5) * 1.5;
-    this.speedY = (Math.random() - 0.5) * 1.5;
-  }
-  draw() {
-    ctx.fillStyle =  'rgba(96,64,42,0.8)'; // #60402a letters
-    ctx.font = `${this.size}px Arial`;
-    ctx.fillText(this.letter, this.x, this.y);
-  }
-  update(mouse) {
-    let dx = this.x - mouse.x;
-    let dy = this.y - mouse.y;
-    let distance = Math.sqrt(dx * dx + dy * dy);
-
-    if (distance < 120) {
-      const angle = Math.atan2(dy, dx);
-      const force = (120 - distance) / 10;
-      this.x += Math.cos(angle) * force;
-      this.y += Math.sin(angle) * force;
-    }
-
-    this.x += this.speedX;
-    this.y += this.speedY;
-
-    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
-    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
-  }
-}
-
-function init() {
-  particles = [];
-  for (let i = 0; i < 100; i++) {
-    let x = Math.random() * canvas.width;
-    let y = Math.random() * canvas.height;
-    particles.push(new Particle(x, y));
-  }
-}
-
-let mouse = { x: null, y: null };
-
-window.addEventListener('mousemove', function(e) {
-  mouse.x = e.x;
-  mouse.y = e.y;
-});
-
-function animate() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  particles.forEach(p => {
-    p.update(mouse);
-    p.draw();
-  });
-  requestAnimationFrame(animate);
-}
-
-window.addEventListener('resize', function() {
-  canvas.width = window.innerWidth;
-  canvas.height = window.innerHeight;
-  init();
-});
-
-init();
-animate();
-</script>
-<script>
-// Sarggek analog clock script
-(function() {
-  const hourHand = document.getElementById('hour-hand');
-  const minuteHand = document.getElementById('minute-hand');
-  const secondHand = document.getElementById('second-hand');
-  const label = document.getElementById('clock-label');
-
-  function updateClock() {
-    const now = new Date();
-    const hh = now.getHours();
-    const mm = now.getMinutes();
-    const ss = now.getSeconds();
-
-    // angles
-    const hourDeg = ((hh % 12) + mm / 60) * 30;        // 360/12 = 30
-    const minuteDeg = (mm + ss / 60) * 6;             // 360/60 = 6
-    const secondDeg = ss * 6;                         // 360/60 = 6
-
-    hourHand.style.transform = `translate(-50%, -100%) rotate(${hourDeg}deg)`;
-    minuteHand.style.transform = `translate(-50%, -100%) rotate(${minuteDeg}deg)`;
-    secondHand.style.transform = `translate(-50%, -100%) rotate(${secondDeg}deg)`;
-
-    // optional digital label under clock (12h AM/PM)
-    const hh12 = ((hh + 11) % 12) + 1;
-    const ampm = hh >= 12 ? 'PM' : 'AM';
-    const paddedMin = mm.toString().padStart(2,'0');
-    label.textContent = `${hh12}:${paddedMin} ${ampm}`;
-  }
-
-  // init
-  updateClock();
-  // update every 1s for smooth second hand (transition is short)
-  setInterval(updateClock, 1000);
-})();
-</script>
-
+  <!-- Footer -->
+  <footer>
+    <button class="footer-btn" onclick="location.href='myrap.html'">My Rap</button>
+    <div class="stream-icons">
+      <img src="stream1.png" alt="Spotify">
+      <img src="stream2.png" alt="Apple Music">
+      <img src="stream3.png" alt="YouTube">
+      <img src="stream4.png" alt="JioSaavn">
+    </div>
+  </footer>
 </body>
 </html>
