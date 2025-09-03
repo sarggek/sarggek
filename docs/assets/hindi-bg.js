@@ -69,7 +69,7 @@ class Particle {
   }
 
   draw() {
-    ctx.fillStyle = "rgba(255,255,255,0.1)";
+    ctx.fillStyle = "rgba(34, 38, 53, 1)";
     ctx.font = `${this.size}px Arial`;
     ctx.fillText(this.char, this.x, this.y);
   }
