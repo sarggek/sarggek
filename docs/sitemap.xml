@@ -1,57 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
+  <!-- Homepage -->
+  <url>
+    <loc>https://sarggek.com/</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
 
-<url>
-  <loc>https://www.sarggek.com/</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/index.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/bars-beats.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/journey.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/reach-out.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/merch-drop.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/gallery.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/cypher-room.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-<url>
-  <loc>https://www.sarggek.com/Submit_Form.html</loc>
-  <lastmod>2025-09-03T22:23:33+00:00</lastmod>
-  <priority>0.64</priority>
-</url>
+  <!-- Bars & Beats -->
+  <url>
+    <loc>https://sarggek.com/bars-beats.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
 
+  <!-- Journey -->
+  <url>
+    <loc>https://sarggek.com/journey.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Reach Out -->
+  <url>
+    <loc>https://sarggek.com/reach-out.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Merch Drop -->
+  <url>
+    <loc>https://sarggek.com/merch-drop.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gallery -->
+  <url>
+    <loc>https://sarggek.com/gallery.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <!-- Cypher Room -->
+  <url>
+    <loc>https://sarggek.com/cypher-room.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Submit Form -->
+  <url>
+    <loc>https://sarggek.com/Submit_Form.html</loc>
+    <lastmod>2025-09-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
 
 </urlset>
