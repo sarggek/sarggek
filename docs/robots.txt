@@ -1,5 +1,8 @@
-User-agent: *
-Allow: /
+# Robots.txt for Sarggek website
 
-# Sitemap location
-Sitemap: https://sarggek.com/sitemap.xml
+User-agent: *
+Disallow:
+
+# Sitemap URL (agar sitemap hai)
+Sitemap: https://www.sarggek.com/sitemap.xml
+
