@@ -194,3 +194,11 @@ hr{border:none; height:1px; background:rgba(34,211,238,.15); margin:18px 0}
 .footer-icon:hover {
   transform: scale(1.1);
 }
+
+
+.stats {
+  margin-top: 12px;
+  font-size: 0.95rem;
+  opacity: 0.8;
+}
+
