@@ -84,19 +84,7 @@ window.toast = toast;
   </svg>
   <span>Ekant</span>
 </a>
-    </nav>
-  </div>
-</header>
-<main>
-
-<section class="section">
-  <div class="container hero">
-    <div class="card">
-      <h1>Ek Tarfa Ekant</h1>
-      <p class="muted">Tere aane se pahele ekant mera sathi tha... Tujhe pane me rukawat ek sirf jati tha... Nahi manta me ki dharam iss sadi me... Tere jane ke baad ekant hi intazar me baitha tha...</p>
-      <div class="spacer"></div>
-      
-</section>
+  
 
 </main>
 <footer class="bottombar">
