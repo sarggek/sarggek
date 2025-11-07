@@ -127,3 +127,31 @@ window.toast = toast;
 <script src="assets/hindi-bg.js"></script>
 </body>
 </html>
+
+// ----- COUNTER SYSTEM -----
+const viewsEl = document.getElementById("views");
+const likesEl = document.getElementById("likes");
+
+// Storage so page refresh hone ke baad bhi numbers same रहे
+let views = parseInt(localStorage.getItem("ekantViews")) || 300; // Start number tum badha sakta
+let likes = parseInt(localStorage.getItem("ekantLikes")) || 50;
+
+// Update UI
+function updateStats() {
+  viewsEl.textContent = `Views: ${views}`;
+  likesEl.textContent = `Likes: ${likes}`;
+}
+
+updateStats();
+
+// Auto increase every 1 hour
+setInterval(() => {
+  views += 50;  // har hour +50 views
+  likes += 30;  // har hour +30 likes
+
+  localStorage.setItem("ekantViews", views);
+  localStorage.setItem("ekantLikes", likes);
+
+  updateStats();
+}, 3600000); // 3600000 ms = 1 hour
+
