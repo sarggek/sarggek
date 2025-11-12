@@ -35,3 +35,43 @@ function toast(msg='Coming soon…'){
   setTimeout(()=> t.remove(), 1600);
 }
 window.toast = toast;
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+  const initialViews = 103235; // Update this to your latest views count
+  const increment = 50;
+  const hourMs = 60 * 60 * 1000;
+  const viewsKey = 'ekantViewsTimestamp';
+  const viewsContainer = document.getElementById('viewsCount');
+
+  let storedTimestamp = localStorage.getItem(viewsKey);
+  let startTimestamp = storedTimestamp ? parseInt(storedTimestamp, 10) : Date.now();
+
+  // Save the initial timestamp if first visit
+  if (!storedTimestamp) {
+    localStorage.setItem(viewsKey, startTimestamp);
+  }
+
+  // Calculate how many hours have passed
+  let hoursPassed = Math.floor((Date.now() - startTimestamp) / hourMs);
+
+  // Update the views
+  let totalViews = initialViews + (hoursPassed * increment);
+
+  viewsContainer.textContent = totalViews;
+  
+  // Optionally, refresh the views every hour while on page
+  setInterval(function () {
+    let now = Date.now();
+    let newHoursPassed = Math.floor((now - startTimestamp) / hourMs);
+    let updatedViews = initialViews + (newHoursPassed * increment);
+    viewsContainer.textContent = updatedViews;
+  }, hourMs);
+
+});
+
