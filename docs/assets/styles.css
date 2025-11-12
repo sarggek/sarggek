@@ -195,3 +195,14 @@ hr{border:none; height:1px; background:rgba(34,211,238,.15); margin:18px 0}
   transform: scale(1.1);
 }
 
+
+
+
+
+#viewsContainer {
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 16px;
+  color: #eee;
+}
+
