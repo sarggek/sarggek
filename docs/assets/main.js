@@ -90,4 +90,4 @@ function incrementViews() {
 }
 
 // Har 1 ghante (3600000 milliseconds) ke bad badhaye
-setInterval(incrementViews, 3600000);
+setInterval(incrementViews, 60);
