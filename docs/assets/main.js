@@ -75,3 +75,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+
+
+
+
+
+
+
+let viewsCount = document.getElementById('viewsCount');
+
+function incrementViews() {
+    let currentViews = parseInt(viewsCount.innerText);
+    viewsCount.innerText = currentViews + 10;
+}
+
+// Har 1 ghante (3600000 milliseconds) ke bad badhaye
+setInterval(incrementViews, 3600000);
