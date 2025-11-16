@@ -206,3 +206,16 @@ hr{border:none; height:1px; background:rgba(34,211,238,.15); margin:18px 0}
   color: #233662e;
 }
 
+
+
+
+
+#viewsContainer {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+#viewsCount {
+    color: #007bff;
+}
+
